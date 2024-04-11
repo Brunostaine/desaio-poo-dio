@@ -19,6 +19,12 @@ public class Main {
         curso2.setDescricao("Descrição curso js");
         curso2.setCargaHoraria(4);
 
+        Curso curso3 = new Curso();
+
+        curso3.setTitulo("Curso Node");
+        curso3.setDescricao("Descrição curso node");
+        curso3.setCargaHoraria(6);
+
 //        System.out.println(curso1);
 //        System.out.println(curso2);
 
@@ -27,7 +33,12 @@ public class Main {
         mentoria.setDescricao("Descricao mentoria java");
         mentoria.setData(LocalDate.now());
 
-//        System.out.println(mentoria);
+        Mentoria mentoria2 = new Mentoria();
+        mentoria2.setTitulo("Mentoria Node");
+        mentoria2.setDescricao("Descricao mentoria node");
+        mentoria2.setData(LocalDate.now());
+
+        System.out.println(mentoria2);
 
         Bootcamp bootcamp = new Bootcamp();
         bootcamp.setNome("Bootcamp java developer");
@@ -35,6 +46,13 @@ public class Main {
         bootcamp.getConteudos().add(curso1);
         bootcamp.getConteudos().add(curso2);
         bootcamp.getConteudos().add(mentoria);
+
+        Bootcamp bootcamp2 = new Bootcamp();
+        bootcamp2.setNome("Bootcamp node developer");
+        bootcamp2.setDescricao("Descrição bootcamp node developer");
+        bootcamp2.getConteudos().add(curso2);
+        bootcamp2.getConteudos().add(curso3);
+        bootcamp2.getConteudos().add(mentoria2);
 
         Dev devBruno = new Dev();
         devBruno.setNome("Bruno");
@@ -60,6 +78,20 @@ public class Main {
         System.out.println("Conteudos incritos Ana: " + devAna.getConteudosInscritos());
         System.out.println("Conteudos incritos Ana: " + devAna.getConteudosConcluidos());
         System.out.println("XP: " + devAna.calcularTotalXp());
+
+        System.out.println("----------");
+
+        Dev devJoao = new Dev();
+        devJoao.setNome("João");
+        devJoao.inscreverBootcamp(bootcamp2);
+        System.out.println("Conteudos incritos João: " + devJoao.getConteudosInscritos());
+        System.out.println("XP: " + devJoao.calcularTotalXp());
+        devJoao.progredir();
+        System.out.println("Conteudos incritos João: " + devJoao.getConteudosInscritos());
+        System.out.println("XP: " + devJoao.calcularTotalXp());
+        devJoao.progredir();
+        System.out.println("Conteudos incritos João: " + devJoao.getConteudosInscritos());
+        System.out.println("XP: " + devJoao.calcularTotalXp());
 
     }
 }
